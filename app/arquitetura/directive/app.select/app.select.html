@@ -1,21 +1,30 @@
 <div ng-class="::colMd">
-    <div class="form-group">
+    <div class="form-group"
+         ng-class="{'has-error' : formCtrl[inputName].$invalid && formCtrl[inputName].$touched}">
+        <div class="form-group">
+            <span ng-bind="selectLabel"></span>
+            <i class="fa fa-asterisk text-danger" ng-if="ngRequired"></i>
 
-        <span ng-bind="selectLabel"></span>
+            <select ng-model="ngModel" class="form-control" ng-disabled="ngDisabled"
+                    ng-required="ngRequired" name="{{::nameSelect}}">
 
-        <select class="form-control"
-                ng-model="ngModel"
-                name="{{::nameSelect}}">
+                <option ng-selected="selected"
+                        value="">
+                    Selecione
+                </option>
 
-            <option ng-selected="selected"
-                    value="">
-                Selecione
-            </option>
+                <option ng-repeat="item in provider">
+                    <ng-value="item[providerDescricao]">
+                    {{item[providerDescricao]}}
+                    </ng-value>
+                </option>
 
-            <option ng-repeat="item in ::provider"
-                    value="{{::item[providerDescricao]}}">
-                {{::item[providerDescricao]}}
-            </option>
-        </select>
+            </select>
+
+            <div ng-messages="formCtrl[inputName].$error"
+                 ng-if="formCtrl[inputName].$invalid && formCtrl[inputName].$touched">
+                <div ng-messages-include="app/arquitetura/messages/message.html"></div>
+            </div>
+        </div>
     </div>
 </div>

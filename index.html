@@ -10,17 +10,24 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.css">
     <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
     <link rel="stylesheet" href="app/arquitetura/directive/app.crud/app.crud.css">
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
     <script src="node_modules/angular-messages/angular-messages.js"></script>
     <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
     <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
     <script src="node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="node_modules/ng-autocomplete/src/ngAutocomplete.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 
     <!-- module -->
     <script src="app/config/app.js"></script>
@@ -31,6 +38,7 @@
     <script src="app/arquitetura/directive/app.grid/app.grid.js"></script>
     <script src="app/arquitetura/directive/app.input/app.input.js"></script>
     <script src="app/arquitetura/directive/app.select/app.select.js"></script>
+    <script src="app/arquitetura/directive/app.consulta/app.consulta.js"></script>
 
     <!-- service -->
     <script src="app/arquitetura/service/app-alert.service.js"></script>
@@ -38,7 +46,7 @@
     <script src="app/arquitetura/service/app-storage.service.js"></script>
 
 </head>
-<body ng-app="app" class="container">
+<body ng-app="app" class="container" ng-cloak>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">

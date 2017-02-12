@@ -7,6 +7,7 @@
     function appSelect() {
         return {
             restrict: 'E',
+            require: '^form',
             templateUrl: 'app/arquitetura/directive/app.select/app.select.html',
             scope: {
                 selectLabel: '@',
@@ -14,12 +15,15 @@
                 colspan: '@',
                 provider: '=',
                 providerValor: '@',
-                providerDescricao: '@'
+                providerDescricao: '@',
+                ngDisabled: '=',
+                ngRequired: '='
             },
             link: link
         };
 
-        function link(scope, element, attrs) {
+        function link(scope, element, attrs, formCtrl) {
+            scope.formCtrl = formCtrl;
             scope.providerValor = scope.providerValor || 'valor';
             scope.providerDescricao = scope.providerDescricao || 'descricao';
             scope.colMd = 'col-md-' + (scope.colspan || '3');

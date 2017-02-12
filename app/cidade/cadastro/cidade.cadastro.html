@@ -1,16 +1,35 @@
 <div ng-controller="CidadeCadastroController as vm">
-    <app-crud titulo="Cadastro de Cidades" service="vm.appService" editar="vm.editar">
+    <app-crud titulo="Cadastro de Cidades" service="vm.appService" editar="vm.editar"
+              ng-disabled="!vm.appService.entidade.nome && !vm.appService.entidade.data
+                           && !vm.appService.entidade.estado">
 
         <div class="row">
 
             <app-input ng-model="vm.appService.entidade.nome"
-                       input-label="Descrição:"
-                       colspan="3"></app-input>
+                       input-label="Nome da Cidade:"
+                       colspan="4"
+                       ng-required="true"
+                       placeholder="Cidade">
+            </app-input>
 
             <app-input tipo="date"
                        ng-model="vm.appService.entidade.data"
                        input-label="Data de Cadastro:"
-                       colspan="3"></app-input>
+                       colspan="4"
+                       ng-required="true">
+            </app-input>
+
+            <app-select ng-model="vm.appService.entidade.estado"
+                        select-label="Estado:"
+                        colspan="4"
+                        provider="vm.listaEstado"
+                        provider-descricao="nome"
+                        provider-valor="id"
+                        ng-disabled="!vm.appService.entidade.nome"
+                        ng-required="true">
+
+            </app-select>
+
         </div>
 
     </app-crud>

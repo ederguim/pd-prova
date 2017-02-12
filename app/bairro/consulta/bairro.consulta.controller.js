@@ -10,13 +10,10 @@
     /* @ngInject */
     function BairroConsultaController(BairroConsultaService, $state) {
         var vm = this;
-        vm.lista = [];
+        vm.lista = vm.lista || [];
         vm.appService = BairroConsultaService.getAppService();
 
         vm.paginaCadastro = paginaCadastro;
-        vm.pesquisar  = pesquisar;
-
-        iniciar();
 
         function paginaCadastro(state) {
             $state.go(state);
@@ -30,8 +27,11 @@
             data: 'vm.lista',
             enableColumnMenus: false,
             enableRowSelection: true,
+            enableFiltering: false,
             columnDefs: [
                 {name: 'Nome', field: 'nome'},
+                {name: 'Cidade', field: 'cidade'},
+                {name: 'Estado', field: 'estado'},
                 {name: 'Data de Cadastro', field: 'data', cellTemplate: 'app/template/data.grid.html'},
                 {
                     name: 'Ações', cellTemplate: 'app/template/acoes.grid.html',
@@ -40,18 +40,16 @@
             ]
         };
 
+        iniciar();
+
         function iniciar() {
-           vm.lista = vm.appService.consultar();
+            vm.lista = vm.appService.consultar();
         }
 
         function excluir(index) {
             vm.appService.excluir(index);
             iniciar();
         }
-    }
-
-    function pesquisar() {
-        vm.appService.pesquisar(vm.pesquisa);
     }
 
 })();

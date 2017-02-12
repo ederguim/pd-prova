@@ -15,6 +15,7 @@
             var self = this;
             self.key = key;
             self.entidade = {};
+            self.parametro = {}
             self.provider = [];
 
             self.msgSalvar = 'salvar';
@@ -28,6 +29,7 @@
             self.consultar = consultar;
             self.pesquisar = pesquisar;
             self.limpar = limpar;
+            self.consultaLimpar = consultaLimpar;
 
             self.push = push;
             self.isVerificarNavegador = isVerificarNavegador;
@@ -109,16 +111,45 @@
                 messageSuccess(self.msgExcluir);
             }
 
-            function consultar() {
-                return self.provider = getLocalStorage();
-            }
-
             function limpar() {
                 self.entidade = {};
             }
 
+            function consultaLimpar() {
+                self.parametro = {}
+            }
+
+            function consultar() {
+                return self.provider = getLocalStorage();
+            }
+
             function pesquisar() {
-                //
+                self.provider = getLocalStorage();
+                for (var i = 0; i < self.provider.length; i++) {
+
+                    if (self.provider[i].nome === self.parametro.param
+                        || self.provider[i].estado === self.parametro.param
+                        || self.provider[i].bairro === self.parametro.param
+                        || self.provider[i].cidade === self.parametro.param
+                        && self.provider[i].data === self.parametro.data) {
+                        self.provider = self.provider[i];
+                        break;
+                    }
+
+                    if (self.provider[i].nome === self.parametro.param
+                        || self.provider[i].estado === self.parametro.param
+                        || self.provider[i].bairro === self.parametro.param
+                        || self.provider[i].cidade === self.parametro.param) {
+                        self.provider = self.provider[i];
+                        break;
+                    }
+
+                    if (self.provider[i].data === self.parametro.data) {
+                        self.provider = self.provider[i];
+                        break;
+                    }
+                }
+                return self.provider;
             }
 
             function recuperar(id) {

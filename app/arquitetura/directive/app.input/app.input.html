@@ -1,6 +1,17 @@
 <div ng-class="::colMd">
-    <div class="form-group">
-        <span ng-bind="inputLabel"></span>
-        <input type="{{::tipo}}" class="form-control" ng-model="ngModel" name="{{::nameInput}}">
+    <div class="form-group"
+         ng-class="{'has-error' : formCtrl[inputName].$invalid && formCtrl[inputName].$touched}">
+        <div class="form-group">
+            <span ng-bind="inputLabel"></span>
+            <i class="fa fa-asterisk text-danger" ng-if="ngRequired"></i>
+
+            <input type="{{::tipo}}" ng-model="ngModel" class="form-control" ng-required="ngRequired"
+                   name="{{::inputName}}" placeholder="{{::placeholder}}">
+
+            <div ng-messages="formCtrl[inputName].$error"
+                 ng-if="formCtrl[inputName].$invalid && formCtrl[inputName].$touched">
+                <div ng-messages-include="app/arquitetura/messages/message.html"></div>
+            </div>
+        </div>
     </div>
 </div>

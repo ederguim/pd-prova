@@ -5,23 +5,19 @@
         .module('app')
         .controller('CidadeCadastroController', CidadeCadastroController);
 
-    CidadeCadastroController.$inject = ['CidadeCadastroService', '$state', '$stateParams'];
+    CidadeCadastroController.$inject = ['CidadeCadastroService', 'EstadoConsultaService', '$state', '$stateParams'];
 
     /* @ngInject */
-    function CidadeCadastroController(CidadeCadastroService, $state, $stateParams) {
+    function CidadeCadastroController(CidadeCadastroService, EstadoConsultaService, $state, $stateParams) {
 
         var vm = this;
         vm.appService = CidadeCadastroService.getAppService();
+        vm.appServiceEstado = EstadoConsultaService.getAppService();
+        vm.listaEstado = [];
+        vm.paginaConsulta = paginaConsulta;
+        vm.listarEstado = vm.listarEstado;
 
         iniciar();
-
-        vm.tipos = [
-            {valor: 1, descricao: 'Litro'},
-            {valor: 2, descricao: 'Caixa'},
-            {valor: 3, descricao: 'Unidade'}
-        ];
-
-        vm.paginaConsulta = paginaConsulta;
 
         function paginaConsulta(state) {
             $state.go(state);
@@ -35,6 +31,7 @@
             if (vm.editar) {
                 vm.entidade = vm.appService.recuperar(vm.id);
             }
+            vm.listaEstado = vm.appServiceEstado.consultar();
         }
     }
 

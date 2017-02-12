@@ -1,4 +1,4 @@
-<div class="app-crud">
+<div class="app-consulta">
     <form name="{{formName}}">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -10,13 +10,10 @@
             </div>
 
             <div class="panel-footer">
-                <button ng-if="!editar" ng-disabled="ngDisabled" class="btn btn-primary" ng-click="service.salvar()">
-                    <span>Salvar</span>
+                <button class="btn btn-primary" ng-click="service.pesquisar()">
+                    <span>Consultar</span>
                 </button>
-                <button ng-if="editar" ng-disabled="ngDisabled" class="btn btn-warning" ng-click="service.editar()">
-                    <span>Editar</span>
-                </button>
-                <button class="btn btn-default" ng-click="service.limpar()">
+                <button class="btn btn-default" ng-click="service.consultaLimpar()">
                     <span>Limpar</span>
                 </button>
             </div>

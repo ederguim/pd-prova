@@ -5,13 +5,17 @@
         .module('app')
         .controller('BairroCadastroController', BairroCadastroController);
 
-    BairroCadastroController.$inject = ['BairroCadastroService', '$state', '$stateParams'];
+    BairroCadastroController.$inject = ['BairroCadastroService', 'CidadeConsultaService', 'EstadoConsultaService',
+        '$state', '$stateParams'];
 
     /* @ngInject */
-    function BairroCadastroController(BairroCadastroService, $state, $stateParams) {
+    function BairroCadastroController(BairroCadastroService, CidadeConsultaService,
+                                      EstadoConsultaService, $state, $stateParams) {
 
         var vm = this;
         vm.appService = BairroCadastroService.getAppService();
+        vm.appServiceCidade = CidadeConsultaService.getAppService();
+        vm.appServiceEstado = EstadoConsultaService.getAppService();
 
         iniciar();
 
@@ -35,6 +39,8 @@
             if (vm.editar) {
                 vm.entidade = vm.appService.recuperar(vm.id);
             }
+            vm.listaCidade = vm.appServiceCidade.consultar();
+            vm.listaEstado = vm.appServiceEstado.consultar();
         }
     }
 

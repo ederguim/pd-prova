@@ -1,11 +1,22 @@
 <div ng-controller="BairroConsultaController as vm">
-    <app-grid class-panel="panel-primary" grid-name="Lista de Bairros" vm="vm"></app-grid>
-    <div class="input-group">
-        <input type="text" class="form-control" aria-label="Pesquisar Estado" ng-model="vm.pesquisa">
-        <div class="input-group-btn">
-            <button class="btn btn-primary" ng-click="vm.pesquisar()">
-                <span>Pesquisar Bairro</span>
-            </button>
+
+    <app-consulta titulo="Consultar Bairro" service="vm.appService">
+
+        <div class="row">
+
+            <app-input ng-model="vm.appService.parametro.param"
+                       input-label="Descrição:"
+                       colspan="6" placeholder="Bairro, Cidade, Estado">
+            </app-input>
+
+            <app-input tipo="date"
+                       ng-model="vm.appService.entidade.parametro.data"
+                       input-label="Data de Cadastro:"
+                       colspan="6">
+            </app-input>
         </div>
-    </div>
+
+    </app-consulta>
+
+    <app-grid class-panel="panel-primary" grid-name="Lista de Bairros" vm="vm"></app-grid>
 </div>

@@ -5,16 +5,16 @@
         .module('app')
         .controller('CidadeConsultaController', CidadeConsultaController);
 
-    CidadeConsultaController.$inject = ['CidadeConsultaService', '$state'];
+    CidadeConsultaController.$inject = ['CidadeConsultaService', 'EstadoConsultaService', '$state'];
 
     /* @ngInject */
-    function CidadeConsultaController(CidadeConsultaService, $state) {
+    function CidadeConsultaController(CidadeConsultaService, EstadoConsultaService, $state) {
         var vm = this;
-        vm.lista = [];
+        vm.lista = vm.lista || [];
         vm.appService = CidadeConsultaService.getAppService();
+        vm.appServiceEstado = EstadoConsultaService.getAppService();
 
         vm.paginaCadastro = paginaCadastro;
-        vm.pesquisar  = pesquisar;
 
         iniciar();
 
@@ -32,6 +32,7 @@
             enableRowSelection: true,
             columnDefs: [
                 {name: 'Nome', field: 'nome'},
+                {name: 'Estado', field: 'estado'},
                 {name: 'Data de Cadastro', field: 'data', cellTemplate: 'app/template/data.grid.html'},
                 {
                     name: 'Ações', cellTemplate: 'app/template/acoes.grid.html',
@@ -41,16 +42,12 @@
         };
 
         function iniciar() {
-           vm.lista = vm.appService.consultar();
+            vm.lista = vm.appService.consultar();
         }
 
         function excluir(index) {
             vm.appService.excluir(index);
             iniciar();
-        }
-
-        function pesquisar() {
-            vm.appService.pesquisar(vm.pesquisa);
         }
     }
 

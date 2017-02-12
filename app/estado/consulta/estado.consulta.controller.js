@@ -10,11 +10,10 @@
     /* @ngInject */
     function EstadoConsultaController(EstadoConsultaService, $state) {
         var vm = this;
-        vm.lista = [];
+        vm.lista = vm.lista || [];
         vm.appService = EstadoConsultaService.getAppService();
 
         vm.paginaCadastro = paginaCadastro;
-        vm.pesquisar  = pesquisar;
 
         iniciar();
 
@@ -41,16 +40,12 @@
         };
 
         function iniciar() {
-           vm.lista = vm.appService.consultar();
+            vm.lista = vm.appService.consultar();
         }
 
         function excluir(index) {
             vm.appService.excluir(index);
             iniciar();
-        }
-
-        function pesquisar() {
-            vm.appService.pesquisar(vm.pesquisa);
         }
     }
 

@@ -16,15 +16,17 @@
                 titulo:'@',
                 service:'=',
                 editar: '=',
+                ngDisabled: '='
             },
             link: link
         };
 
-        function link(scope, element, attrs) {
+        function link(scope, element, attrs, formCtrl) {
             iniciar();
 
             function iniciar() {
                 scope.formName = 'appCrudForm' + scope.$id;
+                scope.formCtrl = scope.formName;
             }
         }
     }

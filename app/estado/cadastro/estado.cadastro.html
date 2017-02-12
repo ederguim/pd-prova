@@ -1,16 +1,23 @@
 <div ng-controller="EstadoCadastroController as vm">
-    <app-crud titulo="Cadastro de Estados" service="vm.appService" editar="vm.editar">
+
+    <app-crud titulo="Cadastro de Estados" service="vm.appService" editar="vm.editar"
+              ng-disabled="!vm.appService.entidade.nome && !vm.appService.entidade.data">
 
         <div class="row">
 
             <app-input ng-model="vm.appService.entidade.nome"
-                       input-label="Descrição:"
-                       colspan="3"></app-input>
+                       input-label="Nome do Estado:"
+                       colspan="6"
+                       ng-required="true"
+                       placeholder="Estado">
+            </app-input>
 
             <app-input tipo="date"
                        ng-model="vm.appService.entidade.data"
                        input-label="Data de Cadastro:"
-                       colspan="3"></app-input>
+                       colspan="6"
+                       ng-required="true">
+            </app-input>
         </div>
 
     </app-crud>

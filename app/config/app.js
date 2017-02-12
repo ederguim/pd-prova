@@ -5,12 +5,16 @@
     angular.module('app',
         [
             'ngMessages',
-            /*'ngAnimate', Está apresentando o seguinte erro na dependencia: Unknown provider: $$MapProvider <- $$Map <- $$animateQueue <- $animate <- $compile <- $$animateQueue*/
+            'ngMaterial',
+            'ngAnimate',
+            'ngAria',
             'toastr',
             'ui.router',
             'ui.grid',
             'oc.lazyLoad',
-            'LocalStorageModule'
+            'LocalStorageModule',
+            'ngAutocomplete'
+            //'ui.bootstrap' GET http://localhost:63342/pdProva/uib/template/typeahead/typeahead-popup.html 404 (Not Found)
         ]
     );
 

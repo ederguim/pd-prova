@@ -47,7 +47,8 @@
                     return $ocLazyLoad.load(
                         [
                             'app/cidade/cadastro/cidade.cadastro.controller.js',
-                            'app/cidade/cadastro/cidade.cadastro.service.js'
+                            'app/cidade/cadastro/cidade.cadastro.service.js',
+                            'app/estado/consulta/estado.consulta.service.js'
                         ]);
                 }
             }
@@ -62,7 +63,9 @@
                     return $ocLazyLoad.load(
                         [
                             'app/cidade/consulta/cidade.consulta.controller.js',
-                            'app/cidade/consulta/cidade.consulta.service.js'
+                            'app/cidade/consulta/cidade.consulta.service.js',
+                            'app/estado/consulta/estado.consulta.service.js',
+                            'app/bairro/consulta/bairro.consulta.service.js'
                         ]);
                 }
             }
@@ -77,7 +80,9 @@
                     return $ocLazyLoad.load(
                         [
                             'app/bairro/cadastro/bairro.cadastro.controller.js',
-                            'app/bairro/cadastro/bairro.cadastro.service.js'
+                            'app/bairro/cadastro/bairro.cadastro.service.js',
+                            'app/cidade/consulta/cidade.consulta.service.js',
+                            'app/estado/consulta/estado.consulta.service.js'
                         ]);
                 }
             }
@@ -92,7 +97,9 @@
                     return $ocLazyLoad.load(
                         [
                             'app/bairro/consulta/bairro.consulta.controller.js',
-                            'app/bairro/consulta/bairro.consulta.service.js'
+                            'app/bairro/consulta/bairro.consulta.service.js',
+                            'app/cidade/consulta/cidade.consulta.service.js',
+                            'app/estado/consulta/estado.consulta.service.js'
                         ]);
                 }
             }
