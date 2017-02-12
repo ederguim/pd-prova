@@ -1,0 +1,11 @@
+<div ng-controller="CidadeConsultaController as vm">
+    <app-grid class-panel="panel-primary" grid-name="Lista de Cidades" vm="vm"></app-grid>
+    <div class="input-group">
+        <input type="text" class="form-control" aria-label="Pesquisar Estado" ng-model="vm.pesquisa">
+        <div class="input-group-btn">
+            <button class="btn btn-primary" ng-click="vm.pesquisar()">
+                <span>Pesquisar Cidade</span>
+            </button>
+        </div>
+    </div>
+</div>

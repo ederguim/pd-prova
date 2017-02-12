@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>App</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-grid/ui-grid.css">
+    <link rel="stylesheet" href="app/arquitetura/directive/app.crud/app.crud.css">
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+
+    <!-- module -->
+    <script src="app/config/app.js"></script>
+    <script src="app/config/app.route.js"></script>
+
+    <!-- directive -->
+    <script src="app/arquitetura/directive/app.crud/app.crud.js"></script>
+    <script src="app/arquitetura/directive/app.grid/app.grid.js"></script>
+    <script src="app/arquitetura/directive/app.input/app.input.js"></script>
+    <script src="app/arquitetura/directive/app.select/app.select.js"></script>
+
+    <!-- service -->
+    <script src="app/arquitetura/service/app-alert.service.js"></script>
+    <script src="app/arquitetura/service/app.service.js"></script>
+    <script src="app/arquitetura/service/app-storage.service.js"></script>
+
+</head>
+<body ng-app="app" class="container">
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="estadoCadastro">Cadastrar Estado</a>
+            <a class="navbar-brand" ui-sref="estadoConsulta">Consultar Estado</a>
+            <a class="navbar-brand" ui-sref="cidadeCadastro">Cadastrar Cidade</a>
+            <a class="navbar-brand" ui-sref="cidadeConsulta">Consultar Cidade</a>
+            <a class="navbar-brand" ui-sref="bairroCadastro">Cadastrar Bairro</a>
+            <a class="navbar-brand" ui-sref="bairroConsulta">Consultar Bairro</a>
+        </div>
+    </div>
+</nav>
+
+<div>
+    <ui-view></ui-view>
+</div>
+
+</body>
+</html>

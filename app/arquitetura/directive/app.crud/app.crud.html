@@ -1,0 +1,26 @@
+<div class="app-crud">
+    <form name="{{formName}}">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <label ng-bind="titulo"></label>
+            </div>
+
+            <div class="panel-body">
+                <ng-transclude></ng-transclude>
+            </div>
+
+            <div class="panel-footer">
+                <button ng-if="!editar" class="btn btn-primary" ng-click="service.salvar()">
+                    <span>Salvar</span>
+                </button>
+                <button ng-if="editar" class="btn btn-warning" ng-click="service.editar()">
+                    <span>Editar</span>
+                </button>
+                <button class="btn btn-default" ng-click="service.limpar()">
+                    <span>Limpar</span>
+                </button>
+            </div>
+
+        </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<div ng-controller="BairroCadastroController as vm">
+    <app-crud titulo="Cadastro de Bairro" service="vm.appService" editar="vm.editar">
+
+        <div class="row">
+
+            <app-input ng-model="vm.appService.entidade.nome"
+                       input-label="Descrição:"
+                       colspan="3"></app-input>
+
+            <app-input tipo="date"
+                       ng-model="vm.appService.entidade.data"
+                       input-label="Data de Cadastro:"
+                       colspan="3"></app-input>
+        </div>
+
+    </app-crud>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+            <button class="btn btn-primary"
+                    ng-click="vm.paginaConsulta('bairroConsulta')">
+                <span>Consultar Bairro</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+

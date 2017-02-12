@@ -1,0 +1,21 @@
+<div ng-class="::colMd">
+    <div class="form-group">
+
+        <span ng-bind="selectLabel"></span>
+
+        <select class="form-control"
+                ng-model="ngModel"
+                name="{{::nameSelect}}">
+
+            <option ng-selected="selected"
+                    value="">
+                Selecione
+            </option>
+
+            <option ng-repeat="item in ::provider"
+                    value="{{::item[providerDescricao]}}">
+                {{::item[providerDescricao]}}
+            </option>
+        </select>
+    </div>
+</div>
